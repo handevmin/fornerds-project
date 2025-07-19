@@ -8,19 +8,5 @@
       "memory": 512,
       "maxDuration": 15
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/portfolio",
-      "destination": "/api/portfolio/index.js"
-    },
-    {
-      "source": "/api/portfolio/(.*)",
-      "destination": "/api/portfolio/index.js"
-    },
-    {
-      "source": "/api/send-email",
-      "destination": "/api/send-email.js"
-    }
-  ]
+  }
 } 
