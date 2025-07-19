@@ -1,12 +1,14 @@
 {
   "functions": {
     "api/portfolio/index.js": {
-      "memory": 1024,
       "maxDuration": 30
     },
     "api/send-email.js": {
-      "memory": 512,
       "maxDuration": 15
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
 } 
