@@ -1,5 +1,4 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/portfolio/index.js": {
       "memory": 1024,
@@ -10,26 +9,18 @@
       "maxDuration": 15
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/portfolio$",
-      "dest": "/api/portfolio/index.js"
+      "source": "/api/portfolio",
+      "destination": "/api/portfolio/index.js"
     },
     {
-      "src": "/api/portfolio/(.*)",
-      "dest": "/api/portfolio/index.js"
+      "source": "/api/portfolio/(.*)",
+      "destination": "/api/portfolio/index.js"
     },
     {
-      "src": "/api/send-email$",
-      "dest": "/api/send-email.js"
-    },
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/api/send-email",
+      "destination": "/api/send-email.js"
     }
   ]
 } 
