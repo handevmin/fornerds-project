@@ -13,25 +13,5 @@
       "source": "/api/(.*)",
       "destination": "/api/$1"
     }
-  ],
-  "headers": [
-    {
-      "source": "/favicon.ico",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.(png|jpg|jpeg|gif|svg|ico))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
   ]
 } 
