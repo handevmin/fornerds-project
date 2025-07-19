@@ -10,14 +10,26 @@
       "maxDuration": 15
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/portfolio",
-      "destination": "/api/portfolio/index.js"
+      "src": "/api/portfolio$",
+      "dest": "/api/portfolio/index.js"
     },
     {
-      "source": "/api/portfolio/:path*",
-      "destination": "/api/portfolio/index.js"
+      "src": "/api/portfolio/(.*)",
+      "dest": "/api/portfolio/index.js"
+    },
+    {
+      "src": "/api/send-email$",
+      "dest": "/api/send-email.js"
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 } 
