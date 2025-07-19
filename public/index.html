@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORNERDS - AI 기반 솔루션 전문 개발사</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e293b',
+                        accent: '#3b82f6',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'sans': ['Pretendard', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <!-- Font Awesome for tech icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+    <style>
+        body {
+            font-family: 'Pretendard', system-ui, sans-serif;
+            background-color: #ffffff;
+            line-height: 1.7;
+        }
+        
+        .section-padding {
+            padding: 4rem 0;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+            border-color: #cbd5e1;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid #2563eb;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .icon-container {
+            width: 3rem;
+            height: 3rem;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="logo.png" alt="FORNERDS" class="h-12">
+            </a>
+            
+            <!-- 데스크톱: 절대 가운데 정렬, 태블릿: 상대 위치 -->
+            <nav class="hidden lg:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
+                <a href="#" class="text-secondary font-medium hover:text-primary transition-colors">홈</a>
+                <a href="#portfolio" class="text-secondary font-medium hover:text-primary transition-colors">포트폴리오</a>
+                <a href="#solutions" class="text-secondary font-medium hover:text-primary transition-colors">솔루션</a>
+                <a href="#contact" class="text-secondary font-medium hover:text-primary transition-colors">문의하기</a>
+            </nav>
+            
+            <!-- 태블릿용: 상대 위치 네비게이션 -->
+            <nav class="hidden md:flex lg:hidden space-x-6 flex-1 justify-center mx-8">
+                <a href="#" class="text-secondary font-medium hover:text-primary transition-colors">홈</a>
+                <a href="#portfolio" class="text-secondary font-medium hover:text-primary transition-colors">포트폴리오</a>
+                <a href="#solutions" class="text-secondary font-medium hover:text-primary transition-colors">솔루션</a>
+                <a href="#contact" class="text-secondary font-medium hover:text-primary transition-colors">문의하기</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="btn-secondary">문의하기</a>
+                <a href="https://pf.kakao.com/_xhxbxfhn/chat" target="_blank" class="btn-primary">카카오톡 상담</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 히어로 섹션 -->
+    <section class="relative bg-gradient-to-br from-slate-50 to-blue-50 py-12 md:py-16 overflow-hidden">
+        <!-- 배경 장식 요소 -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 left-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-primary/3 rounded-full blur-3xl"></div>
+                    </div>
+                    
+        <div class="container mx-auto px-6 text-center relative z-10">
+                                    <!-- 상단 뱃지 -->
+            <div class="inline-block text-base font-medium mb-8">
+                <span class="bg-primary/10 text-primary px-4 py-2 rounded-full">AI 솔루션 전문 개발사</span>
+                        </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-secondary mb-6 leading-tight">
+                AI로 혁신하는<br>
+                <span class="text-gradient">비즈니스 솔루션</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                최신 AI 기술과 검증된 개발 방법론으로<br>
+                엔터프라이즈급 솔루션을 구현합니다
+            </p>
+            
+                                    <!-- CTA 버튼 -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <a href="#contact" class="btn-primary text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all inline-block text-center">
+                    프로젝트 시작하기
+                </a>
+                <a href="#portfolio" class="btn-secondary text-lg px-8 py-4 inline-block text-center">
+                    포트폴리오 보기
+                </a>
+                    </div>
+                    
+            <!-- 통계 요약 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-secondary mb-1">50+</div>
+                    <div class="text-sm text-gray-600">성공 프로젝트</div>
+                            </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-secondary mb-1">25+</div>
+                    <div class="text-sm text-gray-600">만족한 기업</div>
+                        </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-secondary mb-1">100%</div>
+                    <div class="text-sm text-gray-600">고객 만족도</div>
+                    </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-secondary mb-1">90%</div>
+                    <div class="text-sm text-gray-600">재계약율</div>
+                </div>
+            </div>
+                </div>
+    </section>
+
+    <!-- 포트폴리오 섹션 -->
+    <section id="portfolio" class="section-padding">
+        <div class="container mx-auto px-14">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-secondary mb-4">포트폴리오</h2>
+                <p class="text-lg text-gray-600">실제 구현된 프로젝트들을 확인해보세요</p>
+                </div>
+                
+            <!-- 검색 및 필터 -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm">전체</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">AI/ML</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">엔터프라이즈</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">IoT</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">플랫폼</button>
+                </div>
+                
+                <div class="flex gap-4">
+                    <input type="search" placeholder="프로젝트 검색" class="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary">
+                    <select class="px-4 py-2 pr-10 border border-gray-200 rounded-lg focus:outline-none focus:border-primary appearance-none bg-white bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 4 5%22><path fill=%22%23666%22 d=%22M2 0L0 2h4zm0 5L0 3h4z%22/></svg>'); background-position: right 12px center; background-size: 12px;">
+                        <option>최신순</option>
+                        <option>인기순</option>
+                        <option>이름순</option>
+                    </select>
+                </div>
+                </div>
+                
+                        <!-- 포트폴리오 그리드 -->
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- 포트폴리오 카드 1 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="AI/ML">
+                    <div class="aspect-video bg-gradient-to-br from-blue-50 to-purple-50">
+                        <img src="규정 문서 AI 챗봇.png" alt="규정 문서 AI 챗봇" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">규정 문서 AI 챗봇</h3>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-md">AI/ML</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">PDF, Word 파일을 이해하고 정확한 답변을 제공하는 실시간 챗봇</p>
+                        <p class="text-orange-600 text-xs mb-4">※ 정책상 현재 비공개 상태일 수 있습니다. 접근 요청은 문의해주세요.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">NLP</span>
+                            </div>
+                            <a href="http://rulebot.info/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                </div>
+                </div>
+                
+                <!-- 포트폴리오 카드 2 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="엔터프라이즈">
+                    <div class="aspect-video bg-gradient-to-br from-green-50 to-blue-50">
+                        <img src="HR 지원센터.png" alt="HR 지원센터" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">HR 지원센터</h3>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-md">엔터프라이즈</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">인사관리 전반에 특화된 AI 시스템으로 업무 자동화 및 효율성 극대화</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">HR</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                            </div>
+                            <a href="https://hr-chatbot-five.vercel.app/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 포트폴리오 카드 3 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="IoT">
+                    <div class="aspect-video bg-gradient-to-br from-orange-50 to-red-50">
+                        <img src="스마트팩토리 네트워크 대시보드.png" alt="스마트팩토리 네트워크 대시보드" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">스마트팩토리 대시보드</h3>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-md">IoT</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">실시간 IoT 데이터 통합 및 네트워크 토폴로지 시각화</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">IoT</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">실시간</span>
+                            </div>
+                            <a href="https://smart-factory-network-dashboard.vercel.app/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 포트폴리오 카드 4 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="플랫폼">
+                    <div class="aspect-video bg-gradient-to-br from-yellow-50 to-orange-50">
+                        <img src="API 허브.png" alt="API Hub" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">API Hub</h3>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-md">플랫폼</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">API 디스커버리 엔진과 통합 API 관리 시스템</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">API</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">플랫폼</span>
+                            </div>
+                            <a href="https://apihub.world/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                </div>
+            </div>
+            
+                <!-- 포트폴리오 카드 5 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="AI/ML">
+                    <div class="aspect-video bg-gradient-to-br from-purple-50 to-pink-50">
+                        <img src="LawChat.png" alt="LawChat AI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">LawChat AI</h3>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-md">AI/ML</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">전문 분야별 법률 AI와 법률 문서 자동 생성 시스템</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">법률</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                            </div>
+                            <a href="https://lawchat-ai.fly.dev/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 포트폴리오 카드 6 -->
+                <div class="card p-0 overflow-hidden portfolio-item" data-category="플랫폼">
+                    <div class="aspect-video bg-gradient-to-br from-teal-50 to-cyan-50">
+                        <img src="LLM Bench.png" alt="LLM Bench" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">LLM Bench</h3>
+                            <span class="px-2 py-1 bg-teal-100 text-teal-700 text-xs rounded-md">벤치마크</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">대화형 AI 성능 측정 및 비교 분석 플랫폼</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">벤치마크</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                            </div>
+                            <a href="https://llm-bench.vercel.app/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 포트폴리오 카드들 (숨김) -->
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="플랫폼">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-50 to-blue-50">
+                        <img src="OCR 벤치마크 플랫폼.png" alt="OCR 벤치마크 플랫폼" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">OCR 벤치마크 플랫폼</h3>
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-md">플랫폼</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">다양한 OCR 서비스의 성능을 비교 분석하는 플랫폼</p>
+                        <p class="text-orange-600 text-xs mb-4">※ 정책상 현재 비공개 상태일 수 있습니다. 접근 요청은 문의해주세요.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">OCR</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">분석</span>
+                            </div>
+                            <a href="http://ocr-benchmark.info/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="엔터프라이즈">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-50 to-green-50">
+                        <img src="Codai.png" alt="CoDAi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">CoDAi</h3>
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-md">엔터프라이즈</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">AI 기반 데이터 통합 및 변환 플랫폼</p>
+                        <p class="text-orange-600 text-xs mb-4">※ 정책상 현재 비공개 상태일 수 있습니다. 접근 요청은 문의해주세요.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">데이터</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                            </div>
+                            <a href="http://aicodai.kro.kr/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="AI/ML">
+                    <div class="aspect-video bg-gradient-to-br from-pink-50 to-rose-50">
+                        <img src="Culf.png" alt="CULF AI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">CULF AI</h3>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs rounded-md">AI/ML</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">AI 기반 콘텐츠 큐레이션 및 추천 서비스</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">큐레이션</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI</span>
+                            </div>
+                            <a href="https://culf.ai/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <!-- 추가 포트폴리오 카드 11 -->
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="AI/ML">
+                    <div class="aspect-video bg-gradient-to-br from-purple-50 to-indigo-50">
+                        <img src="RIZE AI - YouTube 요약 서비스.png" alt="RIZE AI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">RIZE AI</h3>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-md">AI/ML</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">YouTube 영상을 AI로 분석하여 핵심 인사이트를 제공하는 학습 혁신 플랫폼</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">YouTube 분석</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI 요약</span>
+                            </div>
+                            <a href="https://rize-ai-youtube-summarizer.vercel.app/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 포트폴리오 카드 12 -->
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="AI/ML">
+                    <div class="aspect-video bg-gradient-to-br from-slate-50 to-gray-50">
+                        <img src="Local LLM 챗봇.png" alt="Local LLM 챗봇" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">Local LLM 챗봇</h3>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded-md">AI/ML</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2">클라우드 독립적인 로컬 대규모 언어모델로 완전한 프라이버시 보장</p>
+                        <p class="text-orange-600 text-xs mb-4">※ 정책상 현재 비공개 상태일 수 있습니다. 접근 요청은 문의해주세요.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">Local LLM</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">프라이버시</span>
+                            </div>
+                            <a href="http://local-llm.kro.kr/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 포트폴리오 카드 13 -->
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="IoT">
+                    <div class="aspect-video bg-gradient-to-br from-blue-50 to-indigo-50">
+                        <img src="AGV 관리 시스템.png" alt="AGV 관리 시스템" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">AGV 관리 시스템</h3>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-md">IoT</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">무인 운반 차량의 실시간 모니터링 및 지능형 경로 최적화 시스템</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">AGV</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">자동화</span>
+                            </div>
+                            <a href="https://agv-management-system.vercel.app/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 추가 포트폴리오 카드 14 -->
+                <div class="card p-0 overflow-hidden portfolio-item hidden" data-category="엔터프라이즈">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-50 to-teal-50">
+                        <img src="MICE 이메일 자동화 시스템.png" alt="MICE 이메일 자동화 시스템" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-secondary">MICE 이메일 자동화</h3>
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-md">엔터프라이즈</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">MICE 산업 특화 AI 기반 이메일 자동 생성 및 마케팅 시스템</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">MICE</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">이메일 자동화</span>
+                            </div>
+                            <a href="https://mice-email-automation-efcbe6292efc.herokuapp.com/" target="_blank" class="text-primary hover:text-accent">
+                                <i class="ri-external-link-line text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 더보기 버튼 -->
+            <div class="text-center">
+                <button id="showMoreBtn" class="btn-secondary">더 많은 프로젝트 보기</button>
+                    </div>
+            </div>
+        </section>
+        
+    <!-- 솔루션 섹션 -->
+    <section id="solutions" class="section-padding bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-secondary mb-4">솔루션</h2>
+                <p class="text-lg text-gray-600">다양한 산업 분야에 최적화된 AI 솔루션을 제공합니다</p>
+                    </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- AI/ML 솔루션 -->
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                        <svg class="w-8 h-8 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-3">AI/ML 솔루션</h3>
+                    <p class="text-gray-600 mb-6">자연어 처리, 컴퓨터 비전, 예측 분석 등<br>최신 AI 기술을 활용한 지능형 솔루션</p>
+                    <ul class="text-base text-gray-600 space-y-2 text-left" style="padding-left: 30px;">
+                        <li>• 챗봇 & 대화형 AI</li>
+                        <li>• 문서 분석 & OCR</li>
+                        <li>• 예측 분석 & 추천 시스템</li>
+                    </ul>
+            </div>
+            
+                <!-- 엔터프라이즈 솔루션 -->
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                        <svg class="w-8 h-8 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                        </svg>
+                     </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-3">엔터프라이즈 시스템</h3>
+                    <p class="text-gray-600 mb-6">대규모 비즈니스 환경에 최적화된<br>확장 가능한 시스템과 데이터 관리 솔루션</p>
+                    <ul class="text-base text-gray-600 space-y-2 text-left" style="padding-left: 30px;">
+                        <li>• ERP & CRM 시스템</li>
+                        <li>• 데이터 웨어하우스 & BI</li>
+                        <li>• API 통합 & 마이크로서비스</li>
+                    </ul>
+                 </div>
+                 
+                <!-- 자동화 솔루션 -->
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg flex items-center justify-center border border-slate-200">
+                        <svg class="w-8 h-8 text-slate-700" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+                        </svg>
+                     </div>
+                    <h3 class="text-xl font-semibold text-secondary mb-3">자동화 & IoT</h3>
+                    <p class="text-gray-600 mb-6">스마트 팩토리, IoT 플랫폼을 통한<br>비즈니스 프로세스 자동화 및 효율성 극대화</p>
+                    <ul class="text-base text-gray-600 space-y-2 text-left" style="padding-left: 30px;">
+                        <li>• 스마트 팩토리 솔루션</li>
+                        <li>• IoT 플랫폼 & 대시보드</li>
+                        <li>• RPA & 워크플로우 자동화</li>
+                    </ul>
+                 </div>
+            </div>
+            </div>
+        </section>
+        
+            <!-- 개발 프로세스 섹션 -->
+    <section class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+                        <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold text-secondary mb-4">개발 프로세스</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    검증된 방법론과 최신 기술을 바탕으로 한 체계적인 프로세스로<br>
+                    프로젝트의 성공적인 완성을 보장합니다
+                </p>
+                     </div>
+
+            <!-- 프로세스 플로우 -->
+            <div class="relative max-w-7xl mx-auto">
+                <!-- 연결선 개선 -->
+                <div class="hidden lg:flex absolute top-24 left-0 right-0 justify-between items-center px-28">
+                    <div class="flex-1 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-primary/40 relative">
+                        <div class="absolute -right-1 top-1/2 w-2 h-2 bg-primary/60 rounded-full transform -translate-y-1/2"></div>
+                    </div>
+                    <div class="w-6 h-6 bg-primary/20 rounded-full mx-6 relative">
+                        <div class="absolute inset-1 bg-primary/40 rounded-full"></div>
+                    </div>
+                    <div class="flex-1 h-0.5 bg-gradient-to-r from-primary/40 to-primary/40 relative">
+                        <div class="absolute -right-1 top-1/2 w-2 h-2 bg-primary/60 rounded-full transform -translate-y-1/2"></div>
+                    </div>
+                    <div class="w-6 h-6 bg-primary/20 rounded-full mx-6 relative">
+                        <div class="absolute inset-1 bg-primary/40 rounded-full"></div>
+                    </div>
+                    <div class="flex-1 h-0.5 bg-gradient-to-r from-primary/40 to-transparent relative">
+                        <div class="absolute -right-1 top-1/2 w-2 h-2 bg-primary/60 rounded-full transform -translate-y-1/2"></div>
+                </div>
+                 </div>
+                 
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+                    <!-- 1단계: 요구사항 분석 -->
+                    <div class="relative group">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30 hover:shadow-2xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-500 relative z-10 overflow-hidden">
+                            <!-- 배경 패턴 - 우상단 -->
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full transform translate-x-6 -translate-y-6"></div>
+                            
+                            <!-- 단계 번호 -->
+                            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-8 font-bold text-lg shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300">
+                                01
+                     </div>
+                            
+                            <h3 class="text-xl font-bold text-secondary mb-4 text-center">요구사항 분석</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">고객의 비즈니스 목표와 기술적 요구사항을 파악하여 성공적인 프로젝트 기반을 마련합니다</p>
+                        </div>
+                 </div>
+                 
+                    <!-- 2단계: 설계 & 기획 -->
+                    <div class="relative group">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30 hover:shadow-2xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-500 relative z-10 overflow-hidden">
+                            <!-- 배경 패턴 - 좌하단 -->
+                            <div class="absolute bottom-0 left-0 w-20 h-20 bg-primary/5 rounded-full transform -translate-x-6 translate-y-6"></div>
+                            
+                            <!-- 단계 번호 -->
+                            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-8 font-bold text-lg shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300">
+                                02
+                     </div>
+                            
+                            <h3 class="text-xl font-bold text-secondary mb-4 text-center">설계 & 기획</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">최적의 아키텍처 설계와 상세한 개발 계획을 수립하여 효율적인 구현을 준비합니다</p>
+                        </div>
+                 </div>
+                 
+                    <!-- 3단계: 개발 & 구현 -->
+                    <div class="relative group">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30 hover:shadow-2xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-500 relative z-10 overflow-hidden">
+                            <!-- 배경 패턴 - 우하단 -->
+                            <div class="absolute bottom-0 right-0 w-20 h-20 bg-primary/5 rounded-full transform translate-x-6 translate-y-6"></div>
+                            
+                            <!-- 단계 번호 -->
+                            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-8 font-bold text-lg shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300">
+                                03
+                     </div>
+                            
+                            <h3 class="text-xl font-bold text-secondary mb-4 text-center">개발 & 구현</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">애자일 방법론을 통한 빠른 반복과 지속적인 개선으로 고품질 솔루션을 구현합니다</p>
+                        </div>
+                 </div>
+                 
+                    <!-- 4단계: 배포 & 운영 -->
+                    <div class="relative group">
+                        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/30 hover:shadow-2xl hover:bg-white/90 hover:-translate-y-1 transition-all duration-500 relative z-10 overflow-hidden">
+                            <!-- 배경 패턴 - 좌상단 -->
+                            <div class="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-full transform -translate-x-6 -translate-y-6"></div>
+                            
+                            <!-- 단계 번호 -->
+                            <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mx-auto mb-8 font-bold text-lg shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300">
+                                04
+                     </div>
+                            
+                            <h3 class="text-xl font-bold text-secondary mb-4 text-center">배포 & 운영</h3>
+                            <p class="text-gray-600 text-center leading-relaxed">안정적인 배포와 지속적인 모니터링 및 유지보수로 서비스 품질을 보장합니다</p>
+                 </div>
+                    </div>
+                </div>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- 기술 스택 섹션 -->
+    <section class="section-padding bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-secondary mb-4">기술 스택</h2>
+                <p class="text-lg text-gray-600">최신 기술과 검증된 프레임워크로 혁신적인 솔루션을 구현합니다</p>
+                    </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                                <!-- Frontend & UI/UX -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-secondary">Frontend & UI/UX</h3>
+                        <p class="text-sm text-gray-500 mt-1">사용자 경험과 인터페이스 구현</p>
+                </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fab fa-react text-2xl text-blue-500 mr-3"></i>
+                            <span class="font-medium text-secondary">React</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fab fa-vuejs text-2xl text-green-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Vue.js</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fab fa-js-square text-2xl text-blue-600 mr-3"></i>
+                            <span class="font-medium text-secondary">TypeScript</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fas fa-chevron-left text-2xl text-blue-400 mr-3" style="font-weight: 900; text-shadow: 1px 1px 0 #60a5fa, -1px -1px 0 #60a5fa, 1px -1px 0 #60a5fa, -1px 1px 0 #60a5fa;"></i>
+                            <span class="font-medium text-secondary">Flutter</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fab fa-react text-2xl text-gray-900 mr-3"></i>
+                            <span class="font-medium text-secondary">Next.js</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-primary/5 transition-colors duration-200">
+                            <i class="fab fa-figma text-2xl text-purple-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Figma</span>
+                        </div>
+                    </div>
+            </div>
+            
+                                <!-- Backend & Database -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                                        <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-secondary">Backend & Database</h3>
+                        <p class="text-sm text-gray-500 mt-1">서버 로직과 데이터 관리</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fab fa-node-js text-2xl text-green-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Node.js</span>
+                </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fas fa-seedling text-2xl text-green-600 mr-3"></i>
+                            <span class="font-medium text-secondary">Spring Boot</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fas fa-bolt text-2xl text-teal-500 mr-3"></i>
+                            <span class="font-medium text-secondary">FastAPI</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fas fa-database text-2xl text-blue-600 mr-3"></i>
+                            <span class="font-medium text-secondary">PostgreSQL</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fas fa-leaf text-2xl text-green-600 mr-3"></i>
+                            <span class="font-medium text-secondary">MongoDB</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-green-50 transition-colors duration-200">
+                            <i class="fas fa-memory text-2xl text-red-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Redis</span>
+                        </div>
+                    </div>
+            </div>
+            
+                                <!-- AI & Machine Learning -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                                        <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-secondary">AI & Machine Learning</h3>
+                        <p class="text-sm text-gray-500 mt-1">인공지능과 머신러닝 솔루션</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-brain text-2xl text-orange-500 mr-3"></i>
+                            <span class="font-medium text-secondary">TensorFlow</span>
+                </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-fire text-2xl text-red-500 mr-3"></i>
+                            <span class="font-medium text-secondary">PyTorch</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-infinity text-2xl text-gray-800 mr-3"></i>
+                            <span class="font-medium text-secondary">OpenAI</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-grin-beam text-2xl text-yellow-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Hugging Face</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-link text-2xl text-blue-500 mr-3"></i>
+                            <span class="font-medium text-secondary">LangChain</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-purple-50 transition-colors duration-200">
+                            <i class="fas fa-asterisk text-2xl text-orange-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Claude API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-secondary">DevOps & Cloud</h3>
+                        <p class="text-sm text-gray-500 mt-1">인프라 구축과 배포 자동화</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fab fa-docker text-2xl text-blue-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Docker</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fas fa-dharmachakra text-2xl text-purple-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Kubernetes</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fab fa-aws text-2xl text-orange-500 mr-3"></i>
+                            <span class="font-medium text-secondary">AWS</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fas fa-triangle-exclamation text-2xl text-gray-900 mr-3"></i>
+                            <span class="font-medium text-secondary">Vercel</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fab fa-github text-2xl text-gray-700 mr-3"></i>
+                            <span class="font-medium text-secondary">GitHub Actions</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-50/50 rounded-xl hover:bg-blue-50 transition-colors duration-200">
+                            <i class="fas fa-shield-alt text-2xl text-indigo-500 mr-3"></i>
+                            <span class="font-medium text-secondary">Security</span>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+            </div>
+        </section>
+        
+    <!-- 문의하기 섹션 -->
+    <section id="contact" class="section-padding">
+        <div class="container mx-auto px-6">
+            <div class="max-w-7xl mx-auto" style="max-width: 70rem;">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-secondary mb-4">프로젝트 문의</h2>
+                    <p class="text-lg text-gray-600">AI 솔루션 구현에 대해 상담받으세요</p>
+                    </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- 문의 폼 -->
+                    <div class="card p-8">
+                                                <form id="contactForm" class="space-y-6">
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">회사명</label>
+                                <input type="text" name="company" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary">
+                </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">담당자명</label>
+                                    <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">연락처</label>
+                                    <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary">
+                                </div>
+            </div>
+            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">이메일</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary">
+                    </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">프로젝트 유형</label>
+                                <select name="project_type" required class="w-full px-4 py-3 pr-10 border border-gray-200 rounded-lg focus:outline-none focus:border-primary appearance-none bg-white bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 4 5%22><path fill=%22%23666%22 d=%22M2 0L0 2h4zm0 5L0 3h4z%22/></svg>'); background-position: right 12px center; background-size: 12px;">
+                                    <option value="">선택해주세요</option>
+                                    <option value="AI/ML 솔루션">AI/ML 솔루션</option>
+                                    <option value="엔터프라이즈 시스템">엔터프라이즈 시스템</option>
+                                    <option value="자동화 & IoT">자동화 & IoT</option>
+                                    <option value="웹 플랫폼">웹 플랫폼</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">프로젝트 설명</label>
+                                <textarea name="message" rows="4" required class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-primary" placeholder="프로젝트 요구사항과 목표를 간단히 설명해주세요"></textarea>
+            </div>
+            
+                            <button type="submit" class="w-full btn-primary py-4 text-lg">문의 보내기</button>
+                        </form>
+                    </div>
+                 
+                    <!-- 연락처 정보 -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-secondary mb-6">연락처 정보</h3>
+                            
+                            <div class="space-y-6">
+                                                                <div class="flex items-start space-x-4">
+                                    <div class="icon-container">
+                                        <i class="ri-mail-line text-xl"></i>
+                </div>
+                                    <div>
+                                        <h4 class="font-medium text-secondary">이메일</h4>
+                                        <p class="text-gray-600">fornerdsofficial@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                                                <div class="flex items-start space-x-4">
+                                    <div class="icon-container">
+                                        <i class="ri-phone-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-secondary">전화</h4>
+                                        <p class="text-gray-600">010-6685-4470</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="icon-container">
+                                        <i class="ri-time-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-secondary">운영시간</h4>
+                                        <p class="text-gray-600">평일 09:00 - 18:00<br>주말 및 공휴일 휴무</p>
+            </div>
+                    </div>
+                </div>
+            </div>
+            
+                        <div class="card p-6 bg-gradient-to-br from-blue-50 to-primary/5">
+                            <h4 class="font-semibold text-secondary mb-3">빠른 상담을 원하시나요?</h4>
+                            <p class="text-gray-600 text-sm mb-4">AI 솔루션 전문가와 직접 상담하세요</p>
+                            <a href="https://pf.kakao.com/_xhxbxfhn/chat" target="_blank" class="btn-primary w-full inline-block text-center">즉시 상담 신청</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    
+    <!-- 푸터 -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="mb-4 -ml-2">
+                        <img src="logo-darkmode.png" alt="FORNERDS" class="h-10">
+                    </div>
+                    <p class="text-gray-400 mb-4">AI 기반 솔루션으로 비즈니스 혁신을 이끄는 전문 개발사</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="ri-github-line text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="ri-linkedin-line text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="ri-twitter-line text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">서비스</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">AI/ML 솔루션</a></li>
+                        <li><a href="#" class="hover:text-white">엔터프라이즈 시스템</a></li>
+                        <li><a href="#" class="hover:text-white">자동화 & IoT</a></li>
+                        <li><a href="#" class="hover:text-white">웹 플랫폼</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">회사</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">회사소개</a></li>
+                        <li><a href="#" class="hover:text-white">팀</a></li>
+                        <li><a href="#" class="hover:text-white">채용</a></li>
+                        <li><a href="#" class="hover:text-white">블로그</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">지원</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">문의하기</a></li>
+                        <li><a href="#" class="hover:text-white">기술 지원</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">개발자 가이드</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 FORNERDS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let currentFilter = '전체';
+        let showingAll = false;
+
+        // 포트폴리오 필터링 함수
+        function filterPortfolios(category) {
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            portfolioItems.forEach(item => {
+                if (category === '전체' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // 숨겨진 항목들을 다시 숨김 처리
+            if (!showingAll) {
+                const visibleItems = document.querySelectorAll('.portfolio-item:not([style*="display: none"])');
+                visibleItems.forEach((item, index) => {
+                    if (index >= 6) {
+                        item.classList.add('hidden');
+                } else {
+                        item.classList.remove('hidden');
+                    }
+                });
+            }
+
+            updateShowMoreButton();
+        }
+
+        // 더보기 버튼 상태 업데이트
+        function updateShowMoreButton() {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const visibleItems = document.querySelectorAll('.portfolio-item:not([style*="display: none"])');
+            const hiddenItems = document.querySelectorAll('.portfolio-item.hidden:not([style*="display: none"])');
+
+            if (hiddenItems.length > 0) {
+                showMoreBtn.style.display = 'inline-block';
+                showMoreBtn.textContent = showingAll ? '간단히 보기' : '더 많은 프로젝트 보기';
+                showMoreBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                showMoreBtn.disabled = false;
+            } else {
+                showMoreBtn.style.display = 'none';
+            }
+        }
+
+        // 더보기 버튼 기능
+        document.getElementById('showMoreBtn').addEventListener('click', function() {
+            const hiddenItems = document.querySelectorAll('.portfolio-item.hidden:not([style*="display: none"])');
+            
+            if (!showingAll) {
+                // 모든 항목 보이기
+                hiddenItems.forEach(item => {
+                    item.classList.remove('hidden');
+                });
+                showingAll = true;
+                } else {
+                // 처음 6개만 보이기
+                const visibleItems = document.querySelectorAll('.portfolio-item:not([style*="display: none"])');
+                visibleItems.forEach((item, index) => {
+                    if (index >= 6) {
+                        item.classList.add('hidden');
+                    }
+                });
+                showingAll = false;
+            }
+            
+            updateShowMoreButton();
+        });
+
+        // 부드러운 스크롤 (헤더 오프셋 포함)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80; // 헤더 높이
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 필터 버튼 기능
+        document.querySelectorAll('#portfolio .flex.flex-wrap button').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.textContent.trim();
+                currentFilter = category;
+                
+                // 모든 버튼에서 활성 상태 제거
+                document.querySelectorAll('#portfolio .flex.flex-wrap button').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                
+                // 클릭된 버튼에 활성 상태 추가
+                this.classList.remove('bg-gray-100', 'text-gray-700');
+                this.classList.add('bg-primary', 'text-white');
+
+                // 필터링 적용
+                filterPortfolios(category);
+                showingAll = false;
+                });
+            });
+
+            // 검색 기능
+            const searchInput = document.querySelector('input[type="search"]');
+            searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            portfolioItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // 검색 후 더보기 버튼 상태 업데이트
+            showingAll = false;
+            updateShowMoreButton();
+        });
+
+        // 이메일 발송 기능 - 자체 API 사용
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // 버튼 상태 변경
+            submitBtn.textContent = '전송 중...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                const data = {
+                    company: formData.get('company'),
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    project_type: formData.get('project_type'),
+                    message: formData.get('message')
+                };
+                
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('문의가 성공적으로 전송되었습니다!\n빠른 시일 내에 답변드리겠습니다.');
+                    this.reset();
+                } else {
+                    throw new Error(result.message || '전송 실패');
+                }
+            } catch (error) {
+                alert('문의 전송에 실패했습니다.\n잠시 후 다시 시도해주세요.');
+                console.error('Error:', error);
+            } finally {
+                // 버튼 상태 복원
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // 정렬 기능
+        const sortSelect = document.querySelector('select');
+        sortSelect.addEventListener('change', function() {
+            const sortBy = this.value;
+            const portfolioGrid = document.getElementById('portfolioGrid');
+            const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
+            
+            portfolioItems.sort((a, b) => {
+                const titleA = a.querySelector('h3').textContent;
+                const titleB = b.querySelector('h3').textContent;
+                
+                if (sortBy === '이름순') {
+                    return titleA.localeCompare(titleB);
+                } else if (sortBy === '인기순') {
+                    // 여기서는 간단히 역순으로 정렬
+                    return titleB.localeCompare(titleA);
+                } else {
+                    // 최신순 (기본 순서)
+                    return 0;
+                }
+            });
+            
+            // 정렬된 순서로 DOM 재배치
+            portfolioItems.forEach(item => {
+                portfolioGrid.appendChild(item);
+            });
+        });
+
+        // 초기 상태 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            updateShowMoreButton();
+        });
+    </script>
+</body>
+</html>
