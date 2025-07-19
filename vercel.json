@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
   "functions": {
     "api/portfolio/index.js": {
       "memory": 1024,
@@ -11,42 +10,14 @@
       "maxDuration": 15
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/portfolio/(.*)",
-      "dest": "/api/portfolio/index.js"
+      "source": "/api/portfolio",
+      "destination": "/api/portfolio/index.js"
     },
     {
-      "src": "/api/send-email",
-      "dest": "/api/send-email.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/api/portfolio/:path*",
+      "destination": "/api/portfolio/index.js"
     }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    }
-  ],
-  "env": {
-    "MONGODB_URI": "@mongodb_uri",
-    "GMAIL_USER": "@gmail_user",
-    "GMAIL_APP_PASSWORD": "@gmail_app_password"
-  }
+  ]
 } 
